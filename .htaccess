@@ -1,0 +1,8 @@
+## Deny Access
+<FilesMatch "\.?htaccess$>
+    deny from all
+</FilesMatch>
+
+## Redirect User
+
+Redirect 301 /load.php /
