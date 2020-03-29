@@ -17,7 +17,7 @@ if(isset($_POST['submit'])) {
         'storyline' => $_POST['storyline'],
         'trailer' => $_POST['trailer'],
         'release' => $_POST['release'],
-        'genre' => $_POST['genre'],
+        'genre' => $_POST['genList'],
     );
 
     $result = addMovie($movie);
@@ -37,10 +37,10 @@ if(isset($_POST['submit'])) {
 <body>
     <h2>Add Movie!</h2>
     <?php echo !empty($message)? $message:''; ?>
-        <form action="admin_add_movie.php" method="post">
+        <form action="admin_add_movie.php" method="post" enctype="multipart/form-data">
 
             <label>Cover Image:</label><br>
-            <input type="file" name="coverimg" value=""><br><br>
+            <input type="file" name="cover" value=""><br><br>
 
             <label>Movie Title:</label><br>
             <input type="text" name="title" value=""><br><br>
@@ -56,6 +56,9 @@ if(isset($_POST['submit'])) {
 
             <label>Movie Storyline:</label><br>
             <textarea name="storyline"></textarea><br><br>
+
+            <label>Movie trailer:</label><br>
+            <input type="text" name="trailer" value=""><br><br>
 
             <label>Movie Genre: </label><br>
             <select name="genList">
