@@ -10,7 +10,7 @@ $genres = getAll($genre_table);
 if(isset($_POST['submit'])) {
     // if php functions ever take too many parameters(like below), recommend to use array! 
     $movie = array(
-        'cover' => trim($_FILES['cover']),
+        'cover' => $_FILES['cover'],
         'title' => trim($_POST['title']),
         'year' => trim($_POST['year']),
         'runtime' => trim($_POST['runtime']),

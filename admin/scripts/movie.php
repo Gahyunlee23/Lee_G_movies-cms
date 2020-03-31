@@ -1,7 +1,7 @@
 <?php
 
 function addMovie($movie) {
-    var_dump($movie);
+    // var_dump($movie);
     try {
          // 1. connect to the DB
         $pdo = Database::getInstance()->getConnection();

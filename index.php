@@ -36,7 +36,7 @@ if (isset($_GET['filter'])) {
     <?php while ($row = $getMovies->fetch(PDO::FETCH_ASSOC)): ?>
         <div class="movie-item">
         <picture>
-            <source srcset="images/<?php echo str_replace('.jpg','.webp',$row["movies_cover"]); ?>" type="image/webp">
+            <source srcset="images/<?php echo str_replace('.jpg', '.webp', $row["movies_cover"]); ?>" type="image/webp">
             <source srcset="images/<?php echo $row["movies_cover"]; ?>" type="image/jpeg">
             <img src="images/<?php echo $row["movies_cover"]; ?>" alt="<?php echo $row['movies_title']; ?>"/>
         </picture>
