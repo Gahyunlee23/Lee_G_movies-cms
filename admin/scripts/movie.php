@@ -31,6 +31,27 @@ function addMovie($movie) {
 
         // *** optional *** 
         //  convert it to webp
+        if(extension_loaded('gd')) {
+            switch($upload_file['extension']) {
+                case 'jpg';
+                    $upload_source = imagecreatefromjpeg($targetpath);
+                    break;
+                
+                case 'png';
+                    $upload_source = imagecreatefrompng($targetpath);
+                    break;
+                
+                case 'gif';
+                    $upload_source = imagecreatefromgif($targetpath);
+                    break;
+            }
+
+            $convert_webp_result = imagewebp($upload_source, $image_path.$generated_filename.'.webp');
+            
+            if($covnert_webp_result) {
+                throw new Exception('Failed to covert to webp');
+            }
+        }
     
         // 4. insert into the db(tbl_movies as tbl_mov_genre)
         $add_movie_query = 'INSERT INTO tbl_movies(movies_cover, movies_title, movies_year, movies_runtime, movies_storyline, movies_trailer, movies_release)';
